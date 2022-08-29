@@ -45,6 +45,7 @@ class _State extends State<GoogleSignIn>{
       auth.UserCredential userCredential = await _firebaseAuth.signInWithCredential(authCredential);
       auth.User? user = userCredential.user;
       if(user!=null){
+
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => const SignOut()));
       }
