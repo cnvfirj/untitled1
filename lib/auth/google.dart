@@ -25,7 +25,7 @@ class _State extends State<GoogleSignIn>{
           child: IconButton(
             icon: const Icon(Icons.add_box_rounded),
             onPressed: () {
-              signup(context);
+              signUp(context);
             },
           )
         ),
@@ -33,7 +33,7 @@ class _State extends State<GoogleSignIn>{
     );
   }
 
-  Future<void>signup(BuildContext context) async{
+  Future<void>signUp(BuildContext context) async{
     final sign_in.GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
     if(googleSignInAccount!=null){
       final sign_in.GoogleSignInAuthentication googleSignInAuthentication =
@@ -71,7 +71,7 @@ class _SignOutState extends State<SignOut> {
             child: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                signout(context);
+                signOut(context);
               },
             )
         ),
@@ -79,7 +79,8 @@ class _SignOutState extends State<SignOut> {
     );
   }
 
-  void signout(BuildContext context) {
+  void signOut(BuildContext context) {
+
     _googleSignIn.signOut().then((user){
       if(user==null){
         Navigator.pushReplacement(
